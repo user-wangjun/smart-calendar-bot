@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-02-05T15:53:38.993Z",
+  "os": {
+    "platform": "win32",
+    "release": "10.0.26200",
+    "type": "Windows_NT"
+  },
+  "installation": {
+    "installed": false,
+    "version": null,
+    "path": null
+  },
+  "service": {
+    "running": false,
+    "status": "Not Found",
+    "pid": null
+  },
+  "network": {
+    "listening": false,
+    "port": 27017,
+    "host": "127.0.0.1"
+  },
+  "environment": {
+    "inPath": false,
+    "pathValue": "Not found"
+  },
+  "recommendations": [
+    {
+      "priority": "High",
+      "issue": "MongoDB未安装",
+      "action": "请访问官方网站下载并安装 MongoDB Community Server",
+      "link": "https://www.mongodb.com/try/download/community"
+    },
+    {
+      "priority": "High",
+      "issue": "端口无法连接",
+      "action": "服务可能未启动或配置了非默认端口，请检查配置文件"
+    },
+    {
+      "priority": "Low",
+      "issue": "环境变量缺失",
+      "action": "建议将 MongoDB bin 目录添加到系统 PATH 环境变量中以便直接使用命令"
+    }
+  ]
+}

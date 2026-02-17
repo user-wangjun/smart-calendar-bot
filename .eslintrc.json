@@ -1,0 +1,57 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "extends": [
+    "standard",
+    "plugin:promise/recommended"
+  ],
+  "globals": {
+    "process": "readonly",
+    "defineProps": "readonly",
+    "defineEmits": "readonly",
+    "defineExpose": "readonly"
+  },
+  "ignorePatterns": [
+    "dist/",
+    "node_modules/",
+    "mcp-services/**/*.log"
+  ],
+  "rules": {
+    "semi": ["error", "always"],
+    "no-console": "off",
+    "no-unused-vars": ["error", { "args": "none", "ignoreRestSiblings": true }],
+    "consistent-return": "error",
+    "complexity": ["warn", { "max": 15 }],
+    "promise/always-return": "off",
+    "promise/catch-or-return": ["error", { "allowFinally": true }],
+    "promise/no-return-wrap": "error"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/tests/**/*.js",
+        "**/__tests__/**/*.js"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": [
+        "verify-fixes.js"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

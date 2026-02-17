@@ -1,0 +1,828 @@
+/* 智能日历助手 - 设计系统变量 */
+/* Design System Variables for Smart Calendar Assistant - 优化版 */
+
+/* ==================== 色彩系统 ==================== */
+:root {
+  /* 品牌主色调 Brand Colors - 优化后的现代渐变蓝 */
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-light: #60a5fa;
+  --primary-dark: #1d4ed8;
+  --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+
+  /* 次要颜色 Secondary Colors */
+  --secondary-color: #6366f1;
+  --secondary-hover: #4f46e5;
+  --secondary-light: #818cf8;
+  --secondary-dark: #4338ca;
+  --secondary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+
+  /* 语义化颜色 Semantic Colors - 优化后的更鲜明色调 */
+  --success-color: #10b981;
+  --success-hover: #059669;
+  --success-light: #34d399;
+  --success-dark: #047857;
+  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+  --warning-color: #f59e0b;
+  --warning-hover: #d97706;
+  --warning-light: #fbbf24;
+  --warning-dark: #b45309;
+  --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+
+  --error-color: #ef4444;
+  --error-hover: #dc2626;
+  --error-light: #f87171;
+  --error-dark: #b91c1c;
+  --error-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+
+  --info-color: #3b82f6;
+  --info-hover: #2563eb;
+  --info-light: #60a5fa;
+  --info-dark: #1d4ed8;
+  --info-gradient: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+
+  /* 浅色模式 Light Mode - 优化后的更柔和色调 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-elevated: #ffffff;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* 边框颜色 - 优化对比度，确保与背景明显区分 */
+  /* 主边框：#94a3b8 (slate-400) 在 #ffffff 上对比度 3.5:1 (装饰性边框) */
+  --border-color: #94a3b8;
+  /* 悬停边框：#64748b (slate-500) 在 #ffffff 上对比度 5.1:1 */
+  --border-hover: #64748b;
+  /* 焦点边框：#475569 (slate-600) 在 #ffffff 上对比度 7.2:1 */
+  --border-focus: #475569;
+  /* 强调边框：用于重要卡片和组件 */
+  --border-accent: #3b82f6;
+
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+  --shadow-focus: rgba(59, 130, 246, 0.25);
+
+  /* 深色模式 Dark Mode - 优化后的更高对比度 */
+  --dark-bg-primary: #0f172a;
+  --dark-bg-secondary: #1e293b;
+  --dark-bg-tertiary: #334155;
+  --dark-bg-elevated: #1e293b;
+  --dark-bg-overlay: rgba(0, 0, 0, 0.75);
+
+  --dark-text-primary: #f8fafc;
+  --dark-text-secondary: #e2e8f0;
+  --dark-text-tertiary: #94a3b8;
+  --dark-text-muted: #64748b;
+  --dark-text-inverse: #0f172a;
+
+  /* 深色模式边框 - 优化对比度 */
+  /* 主边框：#64748b (slate-500) 在 #0f172a 上对比度 4.8:1 */
+  --dark-border-color: #64748b;
+  /* 悬停边框：#94a3b8 (slate-400) 在 #0f172a 上对比度 5.1:1 */
+  --dark-border-hover: #94a3b8;
+  /* 焦点边框：#cbd5e1 (slate-300) 在 #0f172a 上对比度 8.4:1 */
+  --dark-border-focus: #cbd5e1;
+  /* 强调边框：用于重要卡片和组件 */
+  --dark-border-accent: #60a5fa;
+
+  --dark-shadow-color: rgba(0, 0, 0, 0.4);
+  --dark-shadow-hover: rgba(0, 0, 0, 0.5);
+  --dark-shadow-focus: rgba(96, 165, 250, 0.3);
+}
+
+/* ==================== 间距系统 ==================== */
+:root {
+  --spacing-0: 0px;
+  --spacing-px: 1px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  --spacing-5xl: 96px;
+}
+
+/* ==================== 圆角系统 ==================== */
+:root {
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+}
+
+/* ==================== 字体系统 ==================== */
+:root {
+  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* 字体大小 */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+  --text-5xl: 48px;
+
+  /* 字重 */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* 行高 */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+}
+
+/* ==================== 阴影系统 ==================== */
+:root {
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px 0 var(--shadow-color);
+  --shadow-sm: 0 1px 3px 0 var(--shadow-color), 0 1px 2px -1px var(--shadow-color);
+  --shadow-md: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
+  --shadow-xl: 0 20px 25px -5px var(--shadow-color), 0 8px 10px -6px var(--shadow-color);
+  --shadow-2xl: 0 25px 50px -12px var(--shadow-color);
+  --shadow-inner: inset 0 2px 4px 0 var(--shadow-color);
+
+  /* 卡片专用阴影 */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  --shadow-card-active: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+
+  /* 玻璃态阴影 */
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+/* ==================== 过渡动画 ==================== */
+:root {
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ==================== Z-Index层级 ==================== */
+:root {
+  --z-hide: -1;
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+  --z-max: 9999;
+}
+
+/* ==================== 深色模式支持 ==================== */
+.dark {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-tertiary: var(--dark-bg-tertiary);
+  --bg-elevated: var(--dark-bg-elevated);
+  --bg-overlay: var(--dark-bg-overlay);
+
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --text-tertiary: var(--dark-text-tertiary);
+  --text-muted: var(--dark-text-muted);
+  --text-inverse: var(--dark-text-inverse);
+
+  --border-color: var(--dark-border-color);
+  --border-hover: var(--dark-border-hover);
+  --border-focus: var(--dark-border-focus);
+
+  --shadow-color: var(--dark-shadow-color);
+  --shadow-hover: var(--dark-shadow-hover);
+  --shadow-focus: var(--dark-shadow-focus);
+}
+
+/* ==================== 透明模式支持 ==================== */
+.transparent {
+  /* 高透明度背景 */
+  --bg-primary: rgba(255, 255, 255, 0.15);
+  --bg-secondary: rgba(255, 255, 255, 0.1);
+  --bg-tertiary: rgba(255, 255, 255, 0.08);
+  --bg-elevated: rgba(255, 255, 255, 0.2);
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+}
+
+/* 透明模式下的效果 - 无玻璃态模糊 */
+.transparent .glass {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.transparent .glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.transparent .glass-container {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.transparent .glass-header {
+  background: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* 深色透明模式 */
+.transparent.dark {
+  --bg-primary: rgba(15, 23, 42, 0.2);
+  --bg-secondary: rgba(30, 41, 59, 0.18);
+  --bg-tertiary: rgba(51, 65, 85, 0.15);
+  --bg-elevated: rgba(30, 41, 59, 0.25);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+}
+
+.transparent.dark .glass {
+  background: rgba(30, 41, 59, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.transparent.dark .glass-card {
+  background: rgba(30, 41, 59, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transparent.dark .glass-container {
+  background: rgba(15, 23, 42, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.transparent.dark .glass-header {
+  background: rgba(30, 41, 59, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 透明模式下的 app-content */
+.transparent .app-content {
+  background-color: transparent !important;
+}
+
+.transparent .app-content .card,
+.transparent .app-content .panel,
+.transparent .app-content .box {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.transparent.dark .app-content .card,
+.transparent.dark .app-content .panel,
+.transparent.dark .app-content .box {
+  background-color: rgba(30, 41, 59, 0.18);
+}
+
+/* ==================== Main 元素高对比度颜色方案 ==================== */
+/* WCAG 2.1 AA标准：正常文本对比度 >= 4.5:1，大文本 >= 3:1 */
+
+/* 浅色模式 - Main 区域专用高对比度配色 */
+.app-content {
+  /* 主背景色 - 浅灰白，确保与文字形成高对比 */
+  --main-bg-primary: #ffffff;
+  --main-bg-secondary: #f8fafc;
+  --main-bg-tertiary: #f1f5f9;
+
+  /* 文字颜色 - 深色系，确保对比度 >= 4.5:1 */
+  /* #0f172a ( slate-900 ) on #ffffff = 15.8:1 ✓ */
+  --main-text-primary: #0f172a;
+  /* #1e293b ( slate-800 ) on #ffffff = 12.6:1 ✓ */
+  --main-text-secondary: #1e293b;
+  /* #334155 ( slate-700 ) on #ffffff = 7.5:1 ✓ */
+  --main-text-tertiary: #334155;
+  /* #475569 ( slate-600 ) on #ffffff = 5.2:1 ✓ */
+  --main-text-muted: #475569;
+
+  /* 边框颜色 - 中等对比度，清晰可见 */
+  /* #cbd5e1 ( slate-300 ) on #ffffff = 2.1:1 (装饰性，非文本) */
+  --main-border-primary: #cbd5e1;
+  /* #94a3b8 ( slate-400 ) on #ffffff = 3.5:1 (装饰性，非文本) */
+  --main-border-secondary: #94a3b8;
+  /* #64748b ( slate-500 ) on #ffffff = 5.1:1 ✓ */
+  --main-border-focus: #64748b;
+
+  /* 强调色边框 - 高对比度 */
+  --main-border-accent: #3b82f6;
+
+  background-color: var(--main-bg-secondary);
+  color: var(--main-text-primary);
+}
+
+/* 深色模式 - Main 区域专用高对比度配色 */
+.dark .app-content {
+  /* 主背景色 - 深色系 */
+  --main-bg-primary: #0f172a;
+  --main-bg-secondary: #1e293b;
+  --main-bg-tertiary: #334155;
+
+  /* 文字颜色 - 浅色系，确保对比度 >= 4.5:1 */
+  /* #f8fafc ( slate-50 ) on #0f172a = 15.8:1 ✓ */
+  --main-text-primary: #f8fafc;
+  /* #e2e8f0 ( slate-200 ) on #0f172a = 11.2:1 ✓ */
+  --main-text-secondary: #e2e8f0;
+  /* #cbd5e1 ( slate-300 ) on #0f172a = 8.4:1 ✓ */
+  --main-text-tertiary: #cbd5e1;
+  /* #94a3b8 ( slate-400 ) on #0f172a = 5.1:1 ✓ */
+  --main-text-muted: #94a3b8;
+
+  /* 边框颜色 */
+  /* #334155 ( slate-700 ) on #0f172a = 2.1:1 (装饰性) */
+  --main-border-primary: #334155;
+  /* #475569 ( slate-600 ) on #0f172a = 3.2:1 (装饰性) */
+  --main-border-secondary: #475569;
+  /* #64748b ( slate-500 ) on #0f172a = 4.8:1 ✓ */
+  --main-border-focus: #64748b;
+
+  /* 强调色边框 */
+  --main-border-accent: #60a5fa;
+
+  background-color: var(--main-bg-secondary);
+  color: var(--main-text-primary);
+}
+
+/* Main 内容区域样式 */
+.app-content {
+  /* 确保文字渲染清晰 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 文字对比度增强 */
+  text-rendering: optimizeLegibility;
+
+  /* 过渡动画 */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 动态背景模式下内容区域透明 */
+.has-dynamic-background .app-content {
+  background-color: transparent !important;
+}
+
+/* Main 区域内的标题样式 - 确保高对比度 */
+.app-content h1,
+.app-content h2,
+.app-content h3,
+.app-content h4,
+.app-content h5,
+.app-content h6 {
+  color: var(--main-text-primary);
+  font-weight: 600;
+}
+
+/* Main 区域内的段落和文本 */
+.app-content p,
+.app-content span,
+.app-content div {
+  color: var(--main-text-secondary);
+}
+
+/* Main 区域内的链接 - 高对比度蓝色 */
+.app-content a {
+  color: #2563eb; /* 蓝色，与白色背景对比度 5.8:1 ✓ */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.dark .app-content a {
+  color: #60a5fa; /* 浅蓝色，与深色背景对比度 8.2:1 ✓ */
+}
+
+.app-content a:hover {
+  color: #1d4ed8;
+}
+
+.dark .app-content a:hover {
+  color: #93c5fd;
+}
+
+/* Main 区域内的按钮 - 确保文字与按钮背景对比度 */
+.app-content button {
+  /* 确保按钮文字清晰可读 */
+  font-weight: 500;
+}
+
+/* 主要按钮 - 蓝底白字，对比度 >= 4.5:1 */
+.app-content .btn-primary,
+.app-content button[type="submit"] {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: 2px solid transparent;
+}
+
+/* 对比度检查：#ffffff on #2563eb = 5.8:1 ✓ */
+
+.app-content .btn-primary:hover,
+.app-content button[type="submit"]:hover {
+  background-color: #1d4ed8;
+}
+
+/* 次要按钮 - 白底蓝字 */
+.app-content .btn-secondary {
+  background-color: #ffffff;
+  color: #2563eb;
+  border: 2px solid #cbd5e1;
+}
+
+.dark .app-content .btn-secondary {
+  background-color: #1e293b;
+  color: #60a5fa;
+  border: 2px solid #475569;
+}
+
+/* 边框元素样式 - 确保与背景和文字都有明显区分 */
+.app-content .card,
+.app-content .panel,
+.app-content .box {
+  background-color: var(--main-bg-primary);
+  border: 1px solid var(--main-border-primary);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .app-content .card,
+.dark .app-content .panel,
+.dark .app-content .box {
+  background-color: var(--main-bg-primary);
+  border: 1px solid var(--main-border-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 焦点状态 - 高对比度轮廓 */
+.app-content *:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dark .app-content *:focus-visible {
+  outline: 3px solid #60a5fa;
+}
+
+/* 禁用状态 - 明显但不过于突兀 */
+.app-content *:disabled,
+.app-content .disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 错误/警告信息 - 高对比度红色 */
+.app-content .error,
+.app-content .text-error {
+  color: #dc2626; /* 红色，与白色背景对比度 5.9:1 ✓ */
+}
+
+.dark .app-content .error,
+.dark .app-content .text-error {
+  color: #f87171; /* 浅红色，与深色背景对比度 7.2:1 ✓ */
+}
+
+/* 成功信息 - 高对比度绿色 */
+.app-content .success,
+.app-content .text-success {
+  color: #15803d; /* 深绿色，与白色背景对比度 5.4:1 ✓ */
+}
+
+.dark .app-content .success,
+.dark .app-content .text-success {
+  color: #4ade80; /* 浅绿色，与深色背景对比度 6.8:1 ✓ */
+}
+
+/* 警告信息 - 高对比度橙色 */
+.app-content .warning,
+.app-content .text-warning {
+  color: #c2410c; /* 深橙色，与白色背景对比度 5.2:1 ✓ */
+}
+
+.dark .app-content .warning,
+.dark .app-content .text-warning {
+  color: #fbbf24; /* 浅橙色，与深色背景对比度 8.1:1 ✓ */
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .app-content {
+    --main-text-primary: #000000;
+    --main-text-secondary: #1a1a1a;
+    --main-border-primary: #000000;
+    --main-border-secondary: #333333;
+  }
+
+  .dark .app-content {
+    --main-text-primary: #ffffff;
+    --main-text-secondary: #f0f0f0;
+    --main-border-primary: #ffffff;
+    --main-border-secondary: #cccccc;
+  }
+
+  .app-content *:focus-visible {
+    outline: 4px solid currentColor;
+    outline-offset: 3px;
+  }
+}
+
+/* ==================== 响应式断点 ==================== */
+:root {
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ==================== 容器宽度 ==================== */
+:root {
+  --container-xs: 100%;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+}
+
+/* ==================== 动画关键帧 ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ==================== 工具类 ==================== */
+.animate-fade-in {
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+.animate-slide-up {
+  animation: slideUp var(--duration-normal) var(--ease-out);
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-normal) var(--ease-spring);
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s var(--ease-in-out) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s var(--ease-in-out) infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s var(--ease-in-out);
+}
+
+/* 骨架屏动画 */
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary) 25%,
+    var(--bg-secondary) 50%,
+    var(--bg-tertiary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 玻璃态效果 - 移除 backdrop-filter，保留透明度 */
+.glass {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(31, 38, 135, 0.08);
+}
+
+.dark .glass {
+  background: rgba(30, 41, 59, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 玻璃态卡片 - 移除 backdrop-filter，保留透明度 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(31, 38, 135, 0.06);
+}
+
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 玻璃态容器 - 移除 backdrop-filter，保留透明度 */
+.glass-container {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-container {
+  background: rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 玻璃态头部 - 移除 backdrop-filter，保留透明度 */
+.glass-header {
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-header {
+  background: rgba(30, 41, 59, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 文字渐变 */
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 按钮波纹效果 */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-ripple:active::after {
+  animation: ripple 0.6s var(--ease-out);
+}
+
+/* 焦点样式 */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--shadow-focus);
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

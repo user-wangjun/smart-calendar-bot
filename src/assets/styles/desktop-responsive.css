@@ -1,0 +1,661 @@
+/* PC端响应式样式 */
+
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* PC端布局基础样式 */
+.desktop-layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+}
+
+/* 左侧栏：1/3宽度 */
+.desktop-left-sidebar {
+  width: 33.33%;
+  min-width: 400px;
+  max-width: 600px;
+  background: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* 右侧栏：2/3宽度 */
+.desktop-right-sidebar {
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+  padding: 24px;
+}
+
+/* 响应式断点 */
+
+/* 大屏幕（1200px以上） */
+@media (min-width: 1200px) {
+  .desktop-left-sidebar {
+    min-width: 450px;
+    max-width: 650px;
+  }
+  
+  .desktop-right-sidebar {
+    padding: 32px;
+  }
+  
+  /* 天气趋势图 */
+  .weather-trend-section {
+    padding: 32px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .section-subtitle {
+    font-size: 18px;
+  }
+  
+  /* 气象详情 */
+  .weather-details-section {
+    padding: 32px;
+  }
+  
+  .details-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .detail-card {
+    padding: 24px;
+  }
+  
+  .detail-icon {
+    font-size: 36px;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .detail-value {
+    font-size: 20px;
+  }
+  
+  /* 生活建议 */
+  .life-suggestions-section {
+    padding: 32px;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .suggestion-card {
+    padding: 24px;
+  }
+  
+  .suggestion-icon {
+    font-size: 48px;
+    width: 72px;
+    height: 72px;
+  }
+  
+  .suggestion-title {
+    font-size: 20px;
+  }
+  
+  .suggestion-text {
+    font-size: 18px;
+  }
+}
+
+/* 中等屏幕（1024px - 1199px） */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .desktop-left-sidebar {
+    min-width: 400px;
+    max-width: 550px;
+  }
+  
+  .desktop-right-sidebar {
+    padding: 24px;
+  }
+  
+  /* 天气趋势图 */
+  .weather-trend-section {
+    padding: 24px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
+  }
+  
+  /* 气象详情 */
+  .weather-details-section {
+    padding: 24px;
+  }
+  
+  .details-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .detail-card {
+    padding: 20px;
+  }
+  
+  .detail-icon {
+    font-size: 32px;
+    width: 56px;
+    height: 56px;
+  }
+  
+  .detail-value {
+    font-size: 18px;
+  }
+  
+  /* 生活建议 */
+  .life-suggestions-section {
+    padding: 24px;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .suggestion-card {
+    padding: 20px;
+  }
+  
+  .suggestion-icon {
+    font-size: 40px;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .suggestion-title {
+    font-size: 18px;
+  }
+  
+  .suggestion-text {
+    font-size: 16px;
+  }
+}
+
+/* 小屏幕（768px - 1023px） */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .desktop-layout {
+    flex-direction: column;
+  }
+  
+  .desktop-left-sidebar {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 400px;
+    position: relative;
+  }
+  
+  .desktop-right-sidebar {
+    height: auto;
+    padding: 20px;
+  }
+  
+  /* 天气趋势图 */
+  .weather-trend-section {
+    padding: 20px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+  }
+  
+  .section-subtitle {
+    font-size: 15px;
+  }
+  
+  /* 气象详情 */
+  .weather-details-section {
+    padding: 20px;
+  }
+  
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  
+  .detail-card {
+    padding: 16px;
+  }
+  
+  .detail-icon {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .detail-value {
+    font-size: 16px;
+  }
+  
+  /* 生活建议 */
+  .life-suggestions-section {
+    padding: 20px;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  
+  .suggestion-card {
+    padding: 16px;
+  }
+  
+  .suggestion-icon {
+    font-size: 32px;
+    width: 56px;
+    height: 56px;
+  }
+  
+  .suggestion-title {
+    font-size: 16px;
+  }
+  
+  .suggestion-text {
+    font-size: 15px;
+  }
+}
+
+/* 平板竖屏（480px - 767px） */
+@media (min-width: 480px) and (max-width: 767px) {
+  .desktop-layout {
+    flex-direction: column;
+  }
+  
+  .desktop-left-sidebar {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 350px;
+    position: relative;
+  }
+  
+  .desktop-right-sidebar {
+    height: auto;
+    padding: 16px;
+  }
+  
+  /* 天气趋势图 */
+  .weather-trend-section {
+    padding: 18px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+  }
+  
+  /* 气象详情 */
+  .weather-details-section {
+    padding: 18px;
+  }
+  
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .detail-card {
+    padding: 14px;
+  }
+  
+  .detail-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .detail-value {
+    font-size: 15px;
+  }
+  
+  /* 生活建议 */
+  .life-suggestions-section {
+    padding: 18px;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .suggestion-card {
+    padding: 14px;
+  }
+  
+  .suggestion-icon {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .suggestion-title {
+    font-size: 15px;
+  }
+  
+  .suggestion-text {
+    font-size: 14px;
+  }
+}
+
+/* 手机横屏（360px - 479px） */
+@media (min-width: 360px) and (max-width: 479px) {
+  .desktop-layout {
+    flex-direction: column;
+  }
+  
+  .desktop-left-sidebar {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 300px;
+    position: relative;
+  }
+  
+  .desktop-right-sidebar {
+    height: auto;
+    padding: 12px;
+  }
+  
+  /* 天气趋势图 */
+  .weather-trend-section {
+    padding: 16px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+  
+  .section-subtitle {
+    font-size: 13px;
+  }
+  
+  /* 气象详情 */
+  .weather-details-section {
+    padding: 16px;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .detail-card {
+    padding: 12px;
+  }
+  
+  .detail-icon {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .detail-value {
+    font-size: 14px;
+  }
+  
+  /* 生活建议 */
+  .life-suggestions-section {
+    padding: 16px;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .suggestion-card {
+    padding: 12px;
+  }
+  
+  .suggestion-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .suggestion-title {
+    font-size: 14px;
+  }
+  
+  .suggestion-text {
+    font-size: 13px;
+  }
+}
+
+/* 超小屏幕（小于360px） */
+@media (max-width: 359px) {
+  .desktop-layout {
+    flex-direction: column;
+  }
+  
+  .desktop-left-sidebar {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 250px;
+    position: relative;
+  }
+  
+  .desktop-right-sidebar {
+    height: auto;
+    padding: 10px;
+  }
+  
+  /* 天气趋势图 */
+  .weather-trend-section {
+    padding: 14px;
+  }
+  
+  .section-title {
+    font-size: 16px;
+  }
+  
+  .section-subtitle {
+    font-size: 12px;
+  }
+  
+  /* 气象详情 */
+  .weather-details-section {
+    padding: 14px;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .detail-card {
+    padding: 10px;
+  }
+  
+  .detail-icon {
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .detail-value {
+    font-size: 13px;
+  }
+  
+  /* 生活建议 */
+  .life-suggestions-section {
+    padding: 14px;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .suggestion-card {
+    padding: 10px;
+  }
+  
+  .suggestion-icon {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .suggestion-title {
+    font-size: 13px;
+  }
+  
+  .suggestion-text {
+    font-size: 12px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .desktop-layout {
+    background: #ffffff;
+  }
+  
+  .desktop-left-sidebar,
+  .desktop-right-sidebar {
+    box-shadow: none;
+  }
+  
+  .weather-trend-section,
+  .weather-details-section,
+  .life-suggestions-section {
+    page-break-inside: avoid;
+  }
+}
+
+/* 滚动条样式优化 */
+.desktop-left-sidebar::-webkit-scrollbar,
+.desktop-right-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.desktop-left-sidebar::-webkit-scrollbar-track,
+.desktop-right-sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.desktop-left-sidebar::-webkit-scrollbar-thumb,
+.desktop-right-sidebar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.desktop-left-sidebar::-webkit-scrollbar-thumb:hover,
+.desktop-right-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Firefox滚动条样式 */
+.desktop-left-sidebar,
+.desktop-right-sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* 动画和过渡效果 */
+@media (prefers-reduced-motion: no-preference) {
+  .detail-card,
+  .suggestion-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .detail-card:hover,
+  .suggestion-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion: reduce) {
+  .detail-card,
+  .suggestion-card {
+    transition: none;
+  }
+  
+  .detail-card:hover,
+  .suggestion-card:hover {
+    transform: none;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .detail-card,
+  .suggestion-card {
+    border: 2px solid #000000;
+  }
+  
+  .section-title,
+  .detail-value,
+  .suggestion-title {
+    font-weight: 700;
+  }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .desktop-layout {
+    background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+  
+  .desktop-left-sidebar,
+  .desktop-right-sidebar {
+    background: #2d2d2d;
+    color: #ffffff;
+  }
+  
+  .section-title,
+  .detail-value,
+  .suggestion-title {
+    color: #ffffff;
+  }
+  
+  .detail-card,
+  .suggestion-card {
+    background: #3d3d3d;
+  }
+  
+  .detail-label,
+  .suggestion-text {
+    color: #b0b0b0;
+  }
+}

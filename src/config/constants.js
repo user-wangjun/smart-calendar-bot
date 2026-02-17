@@ -1,0 +1,14 @@
+/**
+ * 全局常量与阈值
+ * 统一管理常用数值，避免魔法数散落
+ */
+export const DEFAULT_REMINDER_MINUTES = 15;
+export const DEFAULT_EVENT_DURATION_MINUTES = 60;
+export const DEFAULT_NAVIGATION_TIMEOUT_MS = 5000;
+export const DEFAULT_RETRY_DELAY_MS = 1000;
+export const DEFAULT_RETRY_ATTEMPTS = 3;
+export const DEFAULT_CACHE_TTL_MS = 30 * 60 * 1000;
+export const DEFAULT_WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
+export const DEFAULT_LOCATION_TIMEOUT_MS = 8000;
+export const DEFAULT_TOTAL_TIMEOUT_MS = 10000;
+export const METRICS_SAVE_INTERVAL_MS = 30000;
