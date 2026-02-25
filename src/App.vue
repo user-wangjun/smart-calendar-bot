@@ -10,10 +10,13 @@
     @completed="handlePermissionCompleted"
     @skip="handlePermissionSkip"
   />
+  
+  <SpeedInsights />
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 import AppLayout from '@/components/layout/AppLayout.vue';
 import PermissionRequestModal from '@/components/PermissionRequestModal.vue';
 import { permissionManager } from '@/services/permissionManager';
