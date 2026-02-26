@@ -5,3 +5,9 @@ dist
 .trae
 .log
 .figma
+mcp-services
+scripts
+data
+docs
+tests
+coverage
