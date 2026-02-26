@@ -1,8 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/((?!api/|_next/|_static/|_vercel|[\\w-]+\\.\\w+).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/:path((?!assets/).*)", "destination": "/index.html" }
   ]
 }
