@@ -1,7 +1,7 @@
 {
-  "name": "smart-calendar-server",
+  "name": "smart-calendar-assistant",
   "version": "1.0.0",
-  "description": "智能日历后端API服务器",
+  "description": "智能日历助手 - Vue3前端应用",
   "type": "module",
   "scripts": {
     "dev": "vite --port 5173 --strictPort",
@@ -69,7 +69,6 @@
     "vue": "^3.5.27"
   },
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "node": "20.x"
   }
 }
