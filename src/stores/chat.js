@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import ZhipuClient from '@/api/zhipuClient.js';
-import apiKeyManager from '@/config/apiKeyManager.js';
-import envConfig from '@/config/env.js';
 import { aiAssistantService } from '@/services/aiAssistantService.js';
 // import { IntentType } from '@/services/aiAssistantService.js';
 

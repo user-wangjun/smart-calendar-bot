@@ -410,6 +410,7 @@ export const useSettingsStore = defineStore('settings', () => {
    */
   const applyBackground = () => {
     // 使用 setTimeout 确保在 Vue 渲染完成后再操作 DOM
+    // eslint-disable-next-line complexity
     setTimeout(() => {
       try {
         // 安全检查：确保 document 和 body 存在

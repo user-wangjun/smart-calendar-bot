@@ -132,31 +132,6 @@ export const useNotificationsStore = defineStore('notifications', () => {
     }
   };
 
-  /**
-   * 添加示例通知（用于演示）
-   */
-  const addSampleNotifications = () => {
-    const samples = [
-      {
-        title: '会议提醒',
-        message: '您有一个会议在15分钟后开始',
-        type: 'reminder'
-      },
-      {
-        title: '天气预警',
-        message: '今日有雷暴，请注意出行安全',
-        type: 'warning'
-      },
-      {
-        title: 'AI助手更新',
-        message: 'AI助手已完成升级，新增更多功能',
-        type: 'info'
-      }
-    ];
-
-    samples.forEach(sample => addNotification(sample));
-  };
-
   // 初始化时加载数据
   loadFromLocalStorage();
 

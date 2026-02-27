@@ -96,6 +96,7 @@ class LunarCalendar {
    * @param {Date} date - 公历日期
    * @returns {Object} 农历日期信息
    */
+  // eslint-disable-next-line complexity
   solarToLunar (date) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;

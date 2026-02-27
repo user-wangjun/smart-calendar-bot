@@ -47,6 +47,7 @@ export default class SystemStrategy {
    * 先尝试高精度，失败后自动降级为低精度
    * @returns {Promise<Object>}
    */
+  // eslint-disable-next-line complexity
   async execute () {
     if (!navigator.geolocation) {
       return { success: false, error: '浏览器不支持地理定位' };
