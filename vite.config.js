@@ -70,24 +70,25 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html')
       },
       output: {
-        manualChunks (id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('vue')) {
-              return 'vue-vendor';
-            }
-            if (id.includes('element-plus')) {
-              return 'element-plus';
-            }
-            if (id.includes('chart.js')) {
-              return 'chartjs';
-            }
-            if (id.includes('lodash')) {
-              return 'lodash';
-            }
-            return 'vendor';
-          }
-          return undefined;
-        }
+        // 使用默认分包策略，避免手动分包导致的循环依赖问题
+        // manualChunks (id) {
+        //   if (id.includes('node_modules')) {
+        //     if (id.includes('vue') || id.includes('pinia') || id.includes('vue-router')) {
+        //       return 'vue-vendor';
+        //     }
+        //     if (id.includes('element-plus')) {
+        //       return 'element-plus';
+        //     }
+        //     if (id.includes('chart.js')) {
+        //       return 'chartjs';
+        //     }
+        //     if (id.includes('lodash')) {
+        //       return 'lodash';
+        //     }
+        //     return 'vendor';
+        //   }
+        //   return undefined;
+        // }
       }
     }
   }

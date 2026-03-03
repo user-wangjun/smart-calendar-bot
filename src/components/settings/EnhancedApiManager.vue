@@ -826,20 +826,28 @@ const validateApiKey = () => {
   }
 
   const key = apiKeyInput.value.trim();
+  let validator = null;
 
+  // 根据提供商类型选择校验器
   if (selectedProvider.value?.isSystem) {
-    // 系统智谱API验证
-    if (key.length < 20) {
-      apiKeyError.value = '智谱API密钥长度应至少20位';
-      apiKeyValid.value = false;
-    } else {
-      apiKeyError.value = '';
-      apiKeyValid.value = true;
-    }
+    // 系统智谱API
+    validator = getValidator('ZHIPU_API_KEY');
+  } else if (selectedProvider.value?.name?.toLowerCase().includes('openrouter')) {
+    validator = getValidator('OPENROUTER_API_KEY');
+  } else if (selectedProvider.value?.name?.toLowerCase().includes('zhipu')) {
+    validator = getValidator('ZHIPU_API_KEY');
   } else {
-    // 用户自定义API验证
-    if (key.length < 10) {
-      apiKeyError.value = 'API密钥长度可能过短';
+    // 默认非空校验
+    validator = getValidator('GENERIC_NON_EMPTY');
+  }
+
+  if (validator && !validator(key)) {
+     apiKeyError.value = 'API密钥格式不正确';
+     apiKeyValid.value = false;
+  } else {
+     // 保留原有的长度校验作为辅助
+    if (key.length < 8) {
+      apiKeyError.value = 'API密钥长度过短';
       apiKeyValid.value = false;
     } else {
       apiKeyError.value = '';

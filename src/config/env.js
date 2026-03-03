@@ -1,7 +1,13 @@
 /**
  * 环境变量加载模块
  * 负责从环境变量或import.meta.env加载配置并进行验证
+ *
+ * 安全增强:
+ * 1. 集成 KeyValidators 进行格式校验
+ * 2. 避免在日志中打印完整密钥
  */
+
+import { getValidator } from '../services/security/KeyValidators.js';
 
 /**
  * 环境变量配置类
@@ -124,62 +130,34 @@ class EnvConfig {
   }
 
   /**
-   * 验证配置项
-   * 检查必需的配置项是否存在且有效，使用默认值而不是抛出错误
+   * 验证必需的配置项
+   * 使用严格的校验规则
    */
-  // eslint-disable-next-line complexity
   validateConfig () {
-    // 确保config对象存在
-    if (!this.config || typeof this.config !== 'object') {
-      this.setDefaults();
-      return;
-    }
+    const keysToValidate = [
+      'OPENROUTER_API_KEY',
+      'ZHIPU_API_KEY',
+      'QINIU_AI_API_KEY',
+      'TENCENT_MAP_KEY',
+      'AMAP_API_KEY'
+    ];
+    const invalidKeys = [];
 
-    // 使用默认API端点URL如果未提供
-    if (!this.config.OPENROUTER_API_URL) {
-      console.warn('OPENROUTER_API_URL未配置，使用默认URL');
-      this.config.OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-    }
+    keysToValidate.forEach(key => {
+      const value = this.config[key];
+      if (value) {
+        // 如果存在，必须符合格式
+        const validator = getValidator(key);
+        if (!validator(value)) {
+          invalidKeys.push(key);
+          console.warn(`[EnvConfig] 环境变量格式错误: ${key}`);
+        }
+      }
+    });
 
-    // 验证URL格式，无效则使用默认值
-    try {
-      // eslint-disable-next-line no-new
-      new URL(this.config.OPENROUTER_API_URL);
-    } catch (error) {
-      console.warn('OPENROUTER_API_URL格式无效，使用默认URL');
-      this.config.OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-    }
-
-    // 使用默认Ollama URL如果未提供
-    if (!this.config.OLLAMA_API_URL) {
-      this.config.OLLAMA_API_URL = 'http://localhost:11434/api';
-    }
-
-    // 七牛云AI URL需要用户自行配置，不提供默认值
-    if (!this.config.QINIU_AI_API_URL) {
-      console.warn('QINIU_AI_API_URL未配置，七牛云AI功能将不可用');
-    }
-
-    // API密钥验证 - 只记录警告，不抛出错误
-    // 让apiValidator在运行时进行详细验证
-    if (!this.config.OPENROUTER_API_KEY) {
-      console.warn('OPENROUTER_API_KEY未配置，需要在设置中配置');
-    } else if (!this.config.OPENROUTER_API_KEY.startsWith('sk-or-v1-')) {
-      console.warn('警告：API密钥格式可能不正确，OpenRouter密钥通常以sk-or-v1开头');
-    }
-
-    // 验证超时时间
-    const timeout = parseInt(this.config.REQUEST_TIMEOUT || '30000');
-    if (isNaN(timeout) || timeout < 1000 || timeout > 300000) {
-      console.warn('警告：REQUEST_TIMEOUT应在1000-300000毫秒之间，使用默认值30000');
-      this.config.REQUEST_TIMEOUT = '30000';
-    }
-
-    // 验证重试次数
-    const retries = parseInt(this.config.MAX_RETRIES || '3');
-    if (isNaN(retries) || retries < 0 || retries > 10) {
-      console.warn('警告：MAX_RETRIES应在0-10之间，使用默认值3');
-      this.config.MAX_RETRIES = '3';
+    if (invalidKeys.length > 0) {
+      console.warn('以下环境变量格式不正确:', invalidKeys.join(', '));
+      // 在严格模式下可以抛出错误，但为了兼容性暂只警告
     }
   }
 
