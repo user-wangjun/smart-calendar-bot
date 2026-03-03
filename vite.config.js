@@ -14,9 +14,9 @@ export default defineConfig({
       ext: '.gz'
     })
   ],
-  // GitHub Pages 部署需要设置正确的 base 路径
-  // 格式：/仓库名/ 或 https://自定义域名/
-  base: '/智能日历助手/',
+  // Gitee Pages 部署需要设置正确的 base 路径
+  // 格式：/仓库名/
+  base: '/smart-calendar/',
 
   resolve: {
     alias: {
