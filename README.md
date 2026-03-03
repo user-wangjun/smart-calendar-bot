@@ -1,52 +1,39 @@
-# 新年日历项目
+# 智能日历助手
 
-## 项目简介
+## 📋 项目简介
 
-新年日历是一个功能完善、用户体验优秀的智能日历应用，支持日历视图、事件管理、AI智能对话、天气集成等功能。项目采用现代化的技术栈，主要使用免费API和服务，实现低成本运行。
+智能日历助手是一个功能完善、用户体验优秀的智能日历应用，支持日历视图、事件管理、AI 智能对话、天气集成等功能。
+
+### 🎯 重要说明
+
+**本项目为纯前端 SPA 应用，不需要购买服务器！**
+
+- ✅ 所有 API 调用都是第三方服务（OpenRouter、智谱 AI、高德地图等）
+- ✅ 数据存储在浏览器本地（IndexedDB / LocalStorage）
+- ✅ 可直接部署到 GitHub Pages、Vercel、Netlify 等平台
+- ✅ 国内访问推荐使用 GitHub Pages（无需备案，速度尚可）
 
 ### 核心特性
 
 - 📅 **日历管理** - 月/周/日视图，事件创建、编辑、删除
-- 🤖 **AI助手「小珺」** - 智能日程管家，支持自然语言创建日程
-- 💬 **AI对话** - 集成OpenRouter、Cherry、七牛云AI等多个AI模型
-- 🎨 **AI图像生成** - 基于文本生成个性化日历背景
-- 🗺 **地图定位** - 集成高德地图，支持路径规划
-- ☁ **云存储** - 支持腾讯云COS，实现云端备份
-- 🔐 **密钥管理** - AES-256加密存储，自动隐藏敏感信息
-- 📱 **响应式设计** - 支持PC端和移动端
-- 💰 **低成本运行** - 主要使用免费API和服务
+- 🤖 **AI 助手** - 智能日程管家，支持自然语言创建日程
+- 💬 **AI 对话** - 集成 OpenRouter、智谱 AI、七牛云 AI 等多个 AI 模型
+- 🎨 **AI 图像生成** - 基于文本生成个性化内容
+- 🗺 **地图定位** - 集成高德地图/腾讯地图，支持定位和天气
+- ☁ **天气集成** - 实时天气、未来预报、生活指数
+- 🔐 **密钥管理** - AES-256 加密存储，自动隐藏敏感信息
+- 📱 **响应式设计** - 支持 PC 端和移动端
+- 💰 **零成本运行** - 可完全使用免费服务
 
-## 技术栈
+---
 
-### 前端技术
-- **Vue.js 3.5.26** - 渐进式JavaScript框架
-- **Vite 7.3.1** - 快速的前端构建工具
-- **Tailwind CSS 4.1.18** - 实用优先的CSS框架
-- **Pinia 3.0.4** - Vue.js状态管理
-- **Vue Router 4.6.4** - Vue.js官方路由
-
-### 后端技术
-- **Node.js** - JavaScript运行时
-- **Express** - Web应用框架（待开发）
-- **SQLite** - 轻量级数据库（待开发）
-
-### 第三方服务
-- **OpenRouter API** - 多个免费AI模型
-- **Cherry API** - DeepSeek V3.1免费模型
-- **七牛云AI** - AI图像生成
-- **Ollama** - 本地AI模型支持
-- **pollinations MCP** - AI图像、文本、语音生成
-- **高德地图 MCP** - 地图定位和路径规划
-- **腾讯云COS MCP** - 云存储和图片处理
-- **Pollinations OAuth** - GitHub用户认证
-
-## 快速开始
+## 🚀 快速开始
 
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/your-username/new-year-calendar.git
-cd new-year-calendar
+git clone https://github.com/your-username/smart-calendar-assistant.git
+cd smart-calendar-assistant
 ```
 
 ### 2. 安装依赖
@@ -55,28 +42,31 @@ cd new-year-calendar
 npm install
 ```
 
-### 3. 配置API密钥
+### 3. 配置 API 密钥（可选）
 
-编辑 `.env` 文件，填入您的API密钥：
+编辑 `.env` 文件，填入您的 API 密钥：
 
 ```bash
-# OpenRouter API密钥（可选，不配置将使用默认API）
-OPENROUTER_API_KEY=your-openrouter-api-key
+# OpenRouter API 密钥
+VITE_OPENROUTER_API_KEY=your-openrouter-api-key
 
-# Cherry API密钥（可选，不配置将使用默认API）
-CHERRY_API_KEY=your-cherry-api-key
+# 智谱 AI API 密钥
+VITE_ZHIPU_API_KEY=your-zhipu-api-key
 
-# 七牛云AI API密钥（可选）
-QINIU_AI_API_KEY=your-qiniu-ai-api-key
+# 七牛云 AI API 密钥
+VITE_QINIU_AI_API_KEY=your-qiniu-ai-api-key
 
-# Ollama API URL（可选，默认为本地地址）
-OLLAMA_API_URL=http://localhost:11434/api
+# 高德地图 API 密钥
+VITE_AMAP_API_KEY=your-amap-api-key
+VITE_AMAP_SECRET_KEY=your-amap-secret-key
+
+# 腾讯地图 API 密钥
+VITE_TENCENT_MAP_KEY=your-tencent-map-key
 ```
 
-**重要说明**：
-- 如果不配置API密钥，系统将自动使用"我的API"（已隐藏）
-- API密钥将使用AES-256加密存储在本地
-- 显示时自动隐藏敏感信息（如：sk-or-****1234）
+**说明**：
+- 不配置 API 密钥时，用户可在设置页面自行配置
+- API 密钥存储在浏览器本地，不会上传
 
 ### 4. 启动开发服务器
 
@@ -84,7 +74,7 @@ OLLAMA_API_URL=http://localhost:11434/api
 npm run dev
 ```
 
-开发服务器将在 `http://127.0.0.1:5173` 启动（Vite 默认）。后端 MCP 服务监听 `http://127.0.0.1:3001` 的 `/health`。
+访问 `http://127.0.0.1:5173`
 
 ### 5. 构建生产版本
 
@@ -92,567 +82,161 @@ npm run dev
 npm run build
 ```
 
-构建后的文件将输出到 `dist/` 目录。
+---
 
-## 功能特性
+## 📦 部署方案
 
-### 已实现功能
+### 方案 1: GitHub Pages ⭐ 强烈推荐
 
-#### 1. API密钥管理
-- ✅ AES-256加密存储
-- ✅ 密钥隐藏显示
-- ✅ 自动切换到"我的API"
-- ✅ 多API提供商支持
-- ✅ 密钥格式验证
-- ✅ 导入导出功能
+**特点**：
+- ✅ 完全免费
+- ✅ 无需 ICP 备案
+- ✅ 国内大部分地区可访问
+- ✅ 自动 CI/CD
 
-#### 2. AI对话服务
-- ✅ 多API提供商集成（OpenRouter、Cherry、七牛云AI、Ollama）
-- ✅ 多轮对话支持
-- ✅ 流式输出
-- ✅ 关键信息提取
-- ✅ 情感分析
-- ✅ 智能建议生成
-- ✅ 聊天记录管理
+**一键部署**：
 
-#### 3. AI图像生成
-- ✅ 基于文本生成图片
-- ✅ 支持多种风格（动漫、风景、卡通等）
-- ✅ 自定义尺寸
-- ✅ base64和URL格式支持
-
-#### 4. 地图定位服务
-- ✅ 地理编码（地址转坐标）
-- ✅ 距离测量
-- ✅ 路径规划（步行、驾车、骑行、公共交通）
-- ✅ 逆地理编码
-
-#### 5. 云存储服务
-- ✅ 文件上传下载
-- ✅ 图片处理（质量评估、超分辨率、抠图、水印等）
-- ✅ 文件管理
-- ✅ 图片搜索
-
-#### 6. 认证服务
-- ✅ GitHub OAuth认证
-- ✅ 会话管理
-- ✅ 域名管理
-
-#### 7. Vue组件
-- ✅ AI助手页面
-- ✅ 日历页面
-- ✅ 设置页面
-- ✅ 首页
-- ✅ 现代化仪表板
-- ✅ 应用布局
-- ✅ 现代化卡片组件
-
-### 开发中功能
-
-#### 1. 前端UI界面完善
-- 🟡 日历视图优化
-- 🟡 事件管理界面
-- 🟡 AI对话界面优化
-- 🟡 设置界面完善
-
-#### 2. 移动端响应式适配
-- 🟡 移动端样式
-- 🟡 触摸交互
-- 🟡 移动端布局
-
-#### 3. 事件管理功能集成
-- 🟡 事件创建
-- 🟡 事件编辑
-- 🟡 事件删除
-- 🟡 事件分类和标签
-- 🟡 事件搜索和过滤
-
-#### 4. 提醒通知系统
-- 🟡 本地通知
-- 🟡 Web Push API
-- 🟡 通知调度
-- 🟡 通知权限管理
-
-### 待开发功能
-
-#### 1. 后端API服务
-- ❌ Express服务器
-- ❌ API端点
-- ❌ SQLite数据库集成
-- ❌ 认证中间件
-
-#### 2. 数据同步服务
-- ❌ 实时同步
-- ❌ 冲突解决
-- ❌ 增量同步
-- ❌ 离线支持
-
-#### 3. 语音识别功能
-- ❌ Web Speech API
-- ❌ 语音输入
-- ❌ 语音命令
-
-#### 4. 图片处理功能
-- ❌ Canvas API
-- ❌ 图片编辑
-- ❌ 图片滤镜
-
-#### 5. 跨平台打包
-- ❌ Electron桌面应用
-- ❌ Capacitor移动应用
-- ❌ 多平台测试
-
-#### 6. 性能优化
-- ❌ 代码分割
-- ❌ 懒加载
-- ❌ 缓存优化
-- ❌ 渲染优化
-
-## 项目结构
-
-```
-新年日历/
-├── .env                          # 环境变量配置
-├── package.json                   # 项目配置
-├── vite.config.js                 # Vite配置
-├── tailwind.config.js             # Tailwind CSS配置
-├── postcss.config.js             # PostCSS配置
-├── index.html                    # HTML入口
-├── loading.html                   # 加载页面
-├── main.html                     # 主应用页面
-├── event-editor.html              # 事件编辑页面
-├── app.html                     # 应用入口页面
-├── 项目工作任务清单.md             # 项目工作任务清单
-├── src/
-│   ├── main.js                  # 应用入口
-│   ├── App.vue                  # 根组件
-│   ├── config/                  # 配置模块
-│   │   ├── env.js              # 环境变量加载
-│   │   ├── apiKeyManager.js    # API密钥管理
-│   │   ├── modelConfig.js      # 模型配置
-│   │   ├── ollamaModelConfig.js
-│   │   ├── qiniuAIModelConfig.js
-│   │   ├── qiniuConfig.js
-│   │   └── unifiedModelConfig.js
-│   ├── api/                     # API客户端
-│   │   ├── openRouterClient.js
-│   │   ├── cherryClient.js
-│   │   ├── qiniuAIClient.js
-│   │   ├── qiniuClient.js
-│   │   └── ollamaClient.js
-│   ├── services/                # 服务层
-│   │   ├── chatService.js      # 聊天服务
-│   │   ├── backgroundService.js  # 背景服务
-│   │   ├── backgroundStorage.js  # 背景存储
-│   │   ├── backupService.js     # 备份服务
-│   │   ├── cloudSyncService.js  # 云同步服务
-│   │   ├── conversationService.js # 对话存储服务
-│   │   ├── dataUpdateService.js # 数据更新服务
-│   │   ├── eventExtractionService.js # 事件提取服务
-│   │   ├── locationService.js   # 定位服务
-│   │   ├── modelRouter.js      # 模型路由器
-│   │   ├── notificationService.js # 通知服务
-│   │   ├── optimizedNavigation.js # 优化导航
-│   │   ├── performanceOptimizer.js # 性能优化器
-│   │   ├── profileStorage.js   # 个人信息存储
-│   │   ├── recommendationService.js # 推荐服务
-│   │   ├── reminderScheduler.js # 提醒调度器
-│   │   └── usageAnalytics.js   # 使用分析
-│   ├── storage/                 # 存储层
-│   │   ├── storageManager.js   # 存储管理器
-│   │   ├── versionManager.js   # 版本管理器
-│   │   ├── capacityManager.js  # 容量管理器
-│   │   └── chatStorage.js      # 聊天记录存储
-│   ├── utils/                   # 工具模块
-│   │   ├── encryption.js       # 加密工具
-│   │   ├── errorHandler.js     # 错误处理器
-│   │   ├── loaderController.js # 加载控制器
-│   │   ├── loaderLogger.js     # 加载日志器
-│   │   ├── requestBuilder.js  # 请求构建器
-│   │   ├── resourceChecker.js  # 资源检查器
-│   │   ├── resourceDownloader.js # 资源下载器
-│   │   └── responseParser.js   # 响应解析器
-│   ├── components/              # Vue组件
-│   │   ├── layout/            # 布局组件
-│   │   ├── common/            # 通用组件
-│   │   ├── desktop/           # 桌面组件
-│   │   ├── mobile/            # 移动组件
-│   │   └── ui/                # UI组件
-│   ├── views/                   # 视图组件
-│   │   ├── AIAssistant.vue
-│   │   ├── Calendar.vue
-│   │   ├── Settings.vue
-│   │   ├── Home.vue
-│   │   ├── ModernDashboard.vue
-│   │   ├── UnifiedSettings.vue
-│   │   ├── UserProfile.vue
-│   │   └── NotFound.vue
-│   ├── stores/                  # 状态管理
-│   │   ├── chat.js
-│   │   ├── events.js
-│   │   ├── settings.js
-│   │   ├── userProfile.js
-│   │   └── userPreferences.js
-│   ├── router/                  # 路由配置
-│   │   ├── index.js
-│   │   └── modernRouter.js
-│   ├── extensions/              # 扩展模块
-│   │   └── ollamaExtensionManager.js
-│   ├── tests/                   # 测试文件
-│   │   └── featureTestSuite.js
-│   └── assets/                  # 静态资源
-│       └── styles/             # 样式文件
-├── data/                        # 数据目录
-│   └── chat.json              # 聊天记录
-├── .backup/                     # 备份目录
-│   ├── deprecated-services/    # 已废弃的服务文件
-│   ├── temp-files/           # 临时文件备份
-│   └── historical-docs/      # 历史文档归档
-├── .trae/                       # Trae IDE配置
-│   ├── documents/            # 项目文档
-│   │   ├── 智能日历助手 - 全面集成测试计划.md
-│   │   ├── 文档索引.md
-│   │   └── plan_*.md (历史计划文档)
-│   └── skills/               # 技能定义
-└── dist/                        # 构建输出目录
+```powershell
+# Windows PowerShell
+.\deploy-to-github.ps1
 ```
 
-## 使用说明
-
-### API密钥管理
-
-#### 设置API密钥
-
-```javascript
-import ApiKeyManager from './src/config/apiKeyManager.js';
-
-const apiKeyManager = new ApiKeyManager();
-
-// 设置OpenRouter API密钥
-apiKeyManager.setApiKey('openrouter', 'sk-or-v1-xxxx');
-
-// 设置Cherry API密钥
-apiKeyManager.setApiKey('cherry', 'your-cherry-api-key');
-
-// 设置七牛云AI API密钥
-apiKeyManager.setApiKey('qiniu-ai', 'your-qiniu-ai-api-key');
-```
-
-#### 获取API密钥
-
-```javascript
-// 获取OpenRouter API密钥（自动切换到默认密钥）
-const openRouterKey = apiKeyManager.getOpenRouterApiKey();
-
-// 获取Cherry API密钥（自动切换到默认密钥）
-const cherryKey = apiKeyManager.getCherryApiKey();
-
-// 获取七牛云AI API密钥（自动切换到默认密钥）
-const qiniuKey = apiKeyManager.getQiniuAIApiKey();
-
-// 检查是否使用默认密钥
-const isDefault = apiKeyManager.isUsingDefaultApiKey();
-```
-
-#### 隐藏显示密钥
-
-```javascript
-// 隐藏显示API密钥
-const maskedKey = apiKeyManager.maskApiKey('sk-or-v1-1234567890abcdef');
-// 输出：sk-or-****cdef
-
-// 获取密钥显示信息
-const displayInfo = apiKeyManager.getDisplayInfo();
-console.log(displayInfo);
-```
-
-### AI助手「小珺」
-
-「小珺」是您的智能日程管家，如玉般温润、如友般贴心、如专家般专业。
-
-#### 基本使用
-
-```javascript
-import ChatService from './src/services/chatService.js';
-
-const chatService = new ChatService();
-await chatService.init();
-
-// 发送消息给小珺
-const result = await chatService.sendMessage('你好小珺，请介绍一下你自己');
-
-if (result.success) {
-  console.log('小珺回复:', result.content);
-  console.log('关键信息:', result.keyInfo);
-} else {
-  console.error('错误:', result.error);
-}
-```
-
-#### 自然语言创建日程
-
-```javascript
-import NaturalLanguageService from './src/services/naturalLanguageService.js';
-
-const nlpService = new NaturalLanguageService();
-
-// 使用自然语言创建日程
-const result = await nlpService.parse('明天下午3点和张三开会讨论项目');
-
-if (result.intent === 'create_event' && result.confidence >= 0.7) {
-  console.log('识别到的事件:', result.event);
-  // 小珺会显示确认卡片，用户确认后创建日程
-}
-```
-
-#### 流式输出
-
-```javascript
-// 发送流式消息
-await chatService.sendStreamMessage(
-  '请写一首关于春天的诗',
-  (chunk) => {
-    // 实时接收生成的内容
-    process.stdout.write(chunk);
-  }
-);
-```
-
-#### 获取聊天历史
-
-```javascript
-// 获取最近20条聊天记录
-const history = await chatService.getChatHistory(20);
-
-// 搜索聊天记录
-const results = await chatService.searchMessages('关键词');
-
-// 获取统计信息
-const stats = await chatService.getStatistics();
-```
-
-### AI图像生成
-
-#### 生成图像
-
-```javascript
-// 生成图像URL
-const imageUrl = await mcp_pollinations_generateImageUrl({
-  prompt: "动漫风格的日历背景，温馨治愈，适合冬季",
-  options: {
-    width: 1920,
-    height: 1080,
-    model: "default"
-  }
-});
-
-// 生成base64格式图像
-const base64Image = await mcp_pollinations_generateImage({
-  prompt: "风景风格的日历背景，春天花朵",
-  options: {
-    width: 1024,
-    height: 1024
-  }
-});
-```
-
-### 地图定位服务
-
-#### 地理编码
-
-```javascript
-// 地址转坐标
-const location = await mcp_amap_geo({
-  address: "北京市朝阳区",
-  city: "北京"
-});
-
-console.log(location);
-```
-
-#### 路径规划
-
-```javascript
-// 步行路径规划
-const route = await mcp_amap_direction_walking({
-  origin: "116.397428,39.90923",
-  destination: "116.487428,39.91923"
-});
-
-// 驾车路径规划
-const drivingRoute = await mcp_amap_direction_driving({
-  origin: "116.397428,39.90923",
-  destination: "116.487428,39.91923"
-});
-```
-
-## 可用模型
-
-### OpenRouter平台模型（免费）
-
-| 模型ID | 名称 | 参数量 | 上下文长度 | 推荐场景 |
-|--------|------|--------|-----------|----------|
-| `qwen/qwen-2.5-7b-instruct:free` | Qwen 2.5 7B | 7B | 32,768 | 中文对话、文本生成 |
-| `nvidia/nemotron-3-nano-30b-a3b:free` | Nemotron 3 Nano 30B | 30B | 4,096 | 快速推理、通用对话 |
-| `xiaomi/mimo-v2-flash:free` | Xiaomi MIMO V2 Flash | 未公开 | 4,096 | 快速响应、轻量级任务 |
-
-### Cherry平台模型（免费）
-
-| 模型ID | 名称 | 参数量 | 上下文长度 | 推荐场景 |
-|--------|------|--------|-----------|----------|
-| `agent/deepseek-v3.1-terminus(free)` | Agent DeepSeek V3.1 | 未公开 | 4,096 | 中文对话、复杂推理、情感分析 |
-
-### Ollama本地模型（免费）
-
-| 模型ID | 名称 | 参数量 | 模型大小 | 上下文长度 | 推荐场景 |
-|--------|------|--------|---------|-----------|----------|
-| `llama3.1` | Llama 3.1 8B | 8B | 4.7GB | 128,000 | 通用对话、复杂任务 |
-| `qwen2.5:7b` | Qwen 2.5 7B | 7B | 4.5GB | 32,768 | 中文对话、文本生成 |
-| `mistral:7b` | Mistral 7B | 7B | 4.1GB | 32,768 | 快速推理、通用对话 |
-| `phi3:mini` | Phi-3 Mini | 3.8B | 2.3GB | 128,000 | 快速推理、边缘设备 |
-
-### MCP服务模型
-
-| 服务类型 | 功能描述 | 成本 |
-|---------|----------|------|
-| Pollinations 图像生成 | AI图像生成 | 免费 |
-| Pollinations 文本生成 | AI文本生成 | 免费 |
-| Pollinations 语音合成 | AI语音合成 | 免费 |
-| 高德地图 MCP | 地图定位和路径规划 | 免费 |
-| 腾讯云COS MCP | 云存储和图片处理 | 按量计费 |
-
-## 开发指南
-
-### 添加新的API提供商
-
-1. 在 `src/api/` 目录下创建新的API客户端文件
-2. 实现API客户端类，继承或参考现有客户端
-3. 在 `src/config/apiKeyManager.js` 中添加新的API密钥管理方法
-4. 在 `src/services/chatService.js` 中集成新的API客户端
-
-### 添加新的Vue组件
-
-1. 在 `src/views/` 或 `src/components/` 目录下创建新的Vue组件
-2. 使用Vue 3 Composition API编写组件
-3. 在 `src/router/index.js` 中添加路由配置
-4. 在布局组件中引用新组件
-
-### 添加新的MCP服务
-
-1. 在相关组件中直接调用MCP服务
-2. 参考现有MCP服务的调用方式
-3. 添加错误处理和降级策略
-
-## 测试
-
-### 运行测试
+**手动部署**：
 
 ```bash
-# 运行API功能测试
-npm run test
+# 1. 创建 GitHub 仓库
+# 2. 推送代码
+git init
+git add .
+git commit -m "initial commit"
+git remote add origin https://github.com/用户名/仓库名.git
+git push -u origin main
 
-# 运行日历应用测试
-npm run test:calendar
+# 3. 配置 GitHub Pages
+# Settings → Pages → Source: GitHub Actions
+
+# 4. 访问
+# https://用户名.github.io/仓库名/
 ```
 
-### 运行示例
-
-```bash
-# 运行简单聊天示例
-npm run example:simple
-
-# 运行日历应用示例
-npm run example:calendar
-```
-
-## 部署
-
-### 网页版部署
-
-```bash
-# 构建生产版本
-npm run build
-
-# 部署到Vercel
-vercel --prod
-
-# 或部署到Netlify
-netlify deploy --prod
-```
-
-### 桌面应用打包
-
-```bash
-# 安装Electron
-npm install electron electron-builder
-
-# 打包桌面应用
-npm run electron:build
-```
-
-### 移动应用打包
-
-```bash
-# 安装Capacitor
-npm install @capacitor/core @capacitor/cli
-
-# 初始化Capacitor
-npx cap init
-
-# 添加平台
-npx cap add android
-npx cap add ios
-
-# 构建应用
-npx cap build android
-npx cap build ios
-```
-
-## 文档
-
-- [项目规划文档](./项目规划文档.md) - 详细的项目规划和技术需求
-- [开发流程文档](./开发流程文档.md) - 完整的开发流程规范
-- [API密钥管理文档](./API密钥管理文档.md) - API密钥管理使用说明
-- [Ollama API集成指南](./Ollama API集成指南.md) - Ollama API集成指南
-- [七牛云API集成文档](./七牛云API集成文档.md) - 七牛云API集成指南
-- [七牛云AI模型API集成文档](./七牛云AI模型API集成文档.md) - 七牛云AI模型API集成指南
-
-## 代码规范
-
-- 命名约定：统一使用驼峰命名法，语义清晰，避免无意义缩写
-- 魔法数治理：常用数值集中在 [src/config/constants.js](file:///d:/Users/Desktop/智能日历助手/src/config/constants.js) 管理，支持按需覆盖
-- 函数职责：超过50行的函数按职责拆分为小函数；优先纯函数与可复用性
-- 错误处理：统一错误响应结构；前端捕获并分类错误；后端使用统一中间件记录与返回
-- 日志等级：开发环境允许信息日志；生产环境限制为 warn/error；去除不必要的 console
-- 输入校验：后端使用参数校验（见 [auth.js](file:///d:/Users/Desktop/智能日历助手/mcp-services/src/routes/auth.js)）；前端对关键参数进行白名单校验
-- 性能阈值：关键业务响应时间目标 <200ms；为热点路径埋点并审计
-- 测试与覆盖率：每个修复均附单元测试；后端认证路由覆盖率≥80%（见 coverage 报表）
-
-### 后续维护建议
-- 完善前端测试框架（ESM/Vitest 或为 Jest 添加转换配置），纳入前端服务层测试以提升整体覆盖率
-- 扩展数据库索引与查询基准测试，持续优化慢查询
-- 将更多散落配置迁移到集中配置模块，避免重复与偏差
-
-## 贡献指南
-
-欢迎贡献代码、报告问题或提出建议！
-
-1. Fork本仓库
-2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启一个Pull Request
-
-## 许可证
-
-MIT License
-
-## 联系方式
-
-如有问题或建议，请联系开发团队。
+**详细文档**：[docs/guides/GitHub Pages 部署指南.md](./docs/guides/GitHub%20Pages%20部署指南.md)
 
 ---
 
-**项目版本**：v2.0.0  
-**最后更新**：2026年1月25日  
-**维护人**：开发团队
+### 方案 2: Vercel
+
+```bash
+# 安装 Vercel CLI
+npm i -g vercel
+
+# 部署
+vercel
+```
+
+**注意**：Vercel 默认域名在国内可能需要挂梯子访问，可绑定自定义域名改善。
+
+---
+
+### 方案 3: Netlify
+
+```bash
+# 安装 Netlify CLI
+npm i -g netlify-cli
+
+# 部署
+netlify deploy --prod
+```
+
+---
+
+### 方案 4: 国内对象存储（需 ICP 备案）
+
+**平台**：
+- 腾讯云 COS
+- 阿里云 OSS
+- 七牛云存储
+
+**特点**：
+- ✅ 访问速度最快
+- ✅ 稳定性高
+- ❌ 需要 ICP 备案
+- 💰 按量付费（有免费额度）
+
+---
+
+## 🛠️ 技术栈
+
+### 前端
+- **Vue.js 3.5.27** - 渐进式 JavaScript 框架
+- **Vite 7.3.1** - 快速前端构建工具
+- **Tailwind CSS 4.1.18** - 实用优先的 CSS 框架
+- **Pinia 3.0.4** - Vue 状态管理
+- **Vue Router 4.6.4** - 官方路由
+- **Element Plus** - UI 组件库
+
+### 第三方服务
+- **OpenRouter** - 多模型 AI 服务
+- **智谱 AI** - GLM 系列模型
+- **七牛云 AI** - AI 图像生成
+- **高德地图** - 地图和天气 API
+- **腾讯地图** - 定位服务
+
+---
+
+## 📝 可用脚本
+
+```bash
+# 开发模式
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 构建 GitHub Pages 版本
+npm run build:github
+
+# 预览生产构建
+npm run preview
+
+# 运行测试
+npm run test
+
+# ESLint 检查
+npm run lint
+npm run lint:fix
+```
+
+---
+
+## 📚 文档
+
+- [GitHub Pages 部署指南](./docs/guides/GitHub%20Pages%20部署指南.md)
+- [部署方案总结](./docs/guides/部署方案总结.md)
+- [API 文档](./docs/API_DOCUMENTATION.md)
+- [设计系统](./docs/DESIGN_SYSTEM.md)
+
+---
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+---
+
+## 📄 许可证
+
+MIT License
+
+---
+
+## 🙏 致谢
+
+感谢以下开源项目和服务：
+- Vue.js 团队
+- Vite 团队
+- Element Plus 团队
+- 所有 API 服务提供商
+
+---
+
+**祝你使用愉快！** 🎉

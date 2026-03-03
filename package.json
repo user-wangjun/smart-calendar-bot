@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --port 5173 --strictPort",
     "build": "vite build",
+    "build:github": "vite build",
     "preview": "vite preview --port 5173 --strictPort",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "lint": "eslint .",

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { h } from 'vue';
 
 // 包装 ErrorComponent 以适配路由错误场景
@@ -141,8 +141,9 @@ const routes = [
 ];
 
 // 创建路由实例
+// 使用 Hash 模式以兼容 GitHub Pages 等静态托管服务
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(), // Hash 模式：https://example.com/#/calendar
   routes,
   scrollBehavior (to, from, savedPosition) {
     // 始终滚动到顶部
