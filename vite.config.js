@@ -16,7 +16,7 @@ export default defineConfig({
   ],
   // Gitee Pages 部署需要设置正确的 base 路径
   // 格式：/仓库名/
-  base: '/smart-calendar.gitee.io/',
+  base: '/WangShangYiJun.gitee.io/',
 
   resolve: {
     alias: {
